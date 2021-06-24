@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Todo from "./Todo";
 
 export default function Todos() {
+  let intitial;
+  if (localStorage.getItem("Todos") === null) {
+    intitial = [];
+  } else {
+    intitial = JSON.parse(localStorage.getItem("Todos"));
+  }
   let todo = [
     { id: 1, title: "Title1", content: "Content1" },
     { id: 2, title: "Title2", content: "Content2" },
     { id: 3, title: "Title3", content: "Content3" },
   ];
-
-  const [Todos, setTodo] = useState(todo);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -18,6 +22,7 @@ export default function Todos() {
         return e !== todo;
       })
     );
+    localStorage.setItem("Todos", JSON.stringify(Todos));
   };
 
   const addtodo = (e) => {
@@ -44,7 +49,15 @@ export default function Todos() {
       content: content,
     };
     setTodo([...Todos, k]);
+    setTitle("");
+    setContent("");
+    localStorage.setItem("Todos", JSON.stringify(Todos));
   };
+
+  const [Todos, setTodo] = useState(intitial);
+  useEffect(() => {
+    localStorage.setItem("Todos", JSON.stringify(Todos));
+  }, [Todos]);
 
   return (
     <div>
