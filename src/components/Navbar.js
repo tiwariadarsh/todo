@@ -25,6 +25,11 @@ export default function Navbar(props) {
                 Home <span className="sr-only">(current)</span>
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/complete">
+                Completed Tasks <span className="sr-only">(current)</span>
+              </Link>
+            </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <Link to="/login">
