@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import Todo from "./Todo";
 
 export default function Todos() {
-  let intitial;
+  let intitial = [
+    { id: 1, title: "Market", content: "Go to the market on 6'o clock" },
+  ];
+
   if (localStorage.getItem("Todos") === null) {
     intitial = [];
   } else {
     intitial = JSON.parse(localStorage.getItem("Todos"));
   }
-  let todo = [
-    { id: 1, title: "Title1", content: "Content1" },
-    { id: 2, title: "Title2", content: "Content2" },
-    { id: 3, title: "Title3", content: "Content3" },
-  ];
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
