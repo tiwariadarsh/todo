@@ -5,6 +5,7 @@ import Todos from "./components/Todos";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./components/About";
 import Login from "./components/Login";
+import Complete from "./components/Complete";
 
 export default function App() {
   return (
@@ -20,6 +21,9 @@ export default function App() {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/complete">
+            <Complete />
           </Route>
         </Switch>
       </Router>
