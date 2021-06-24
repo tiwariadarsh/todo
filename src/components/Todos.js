@@ -24,6 +24,20 @@ export default function Todos() {
     localStorage.setItem("Todos", JSON.stringify(Todos));
   };
 
+  const [com , setCom] = useState("");
+  const addtocomplete = (todo) =>{
+    let x1;
+    if(com.length===0) x1=0;
+    else x1=com[com.length-1].id+1;
+      let k1={
+        id : x1,
+        title : todo.title,
+        content : todo.content,
+      };
+   setCom([...com,k1]);
+   //com array need to move in complete.js
+  }
+
   const addtodo = (e) => {
     if (!title && !content) {
       alert("Title and Content can not be empty");
@@ -96,7 +110,7 @@ export default function Todos() {
         <h1 className="text-center text-danger">No to-do to show , Add some</h1>
       ) : (
         Todos.map((todo) => {
-          return <Todo todo={todo} key={todo.id} onDelete={onDelete} />;
+          return <Todo todo={todo} key={todo.id} onDelete={onDelete} addtocomplete={addtocomplete}/>;
         })
       )}
     </div>
