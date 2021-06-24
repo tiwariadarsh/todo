@@ -63,23 +63,23 @@ export default function Todos() {
       <form onSubmit={addtodo}>
         <div className="mb-3 my-3">
           <div className="row">
-            <label className="form-label text col-1 mx-2">
-              <h3>Title</h3>
+            <label className="form-label text col-2 mx-2">
+              Title
             </label>
             <input
               type="text"
-              className="form-control col-10"
+              className="form-control col-9"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="row my-3">
-            <label className="form-label col-1 mx-2">
-              <h3>Content</h3>
+            <label className="form-label col-2 mx-2">
+              Content
             </label>
             <input
               type="text"
-              className="form-control col-10"
+              className="form-control col-9"
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
