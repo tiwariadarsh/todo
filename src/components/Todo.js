@@ -2,11 +2,25 @@ import React from "react";
 import { Button } from "react-bootstrap";
 
 export default function Todo({ todo, onDelete, addtocomplete }) {
+  const s1 = {
+    fontSize : "0.55rem",
+    color : "blue",
+
+  }
+  const op={
+    backgroundColor : todo.bgcol,
+  }
   return (
-    <div className="bg-light">
+    <div style={op}>
       <div className="d-flex justify-content-between">
-        <div className="p-2 col-example text-left">{todo.title}</div>
-        <div className="p-2 col-example text-left">{todo.content}</div>
+        <div className="p-2 col-example text-left">
+          <div>
+            {todo.title}
+            <div style={s1}>{todo.date}</div>
+            <div style={s1}>{todo.time}</div>
+          </div>
+        </div>
+        <div className="p-2 col-example">{todo.content}</div>
         <div className="p-2 col-example text-left">
           {" "}
           <div>
