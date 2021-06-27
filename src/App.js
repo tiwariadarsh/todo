@@ -22,7 +22,7 @@ let intitial1;
   return (
     <div>
       <Router>
-        <Navbarx title="To-Do List" />
+        <Navbarx title="Task-Manager" />
         <Switch>
           <Route exact path="/">
             <Todos setCom={setCom} com={com} />
